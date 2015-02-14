@@ -1,0 +1,18 @@
+<%if !@client.errors.empty? %>
+	<ol>
+		<% @client.errors.full_messages.each do |msg| %> 
+         <li> <%= msg %> </li>
+         <%end%>
+     </ol>
+<%end%>
+
+<%=  form_for @client do |f| %> <!-- Form_for es para un objeto explicito. El form_tag no va atado a nada-->
+
+	<%= f.text_field :name %>
+	<%= f.text_field :email %> <!--el igual significa que se muestre en el navegador, e decir que cuando está presente se muestra el html de este div--> 
+	<% unless @client.persisted? %>
+	<%= f.password_field :password %>
+	<%end%>
+    <%= f.submit %>
+
+ <% end %>

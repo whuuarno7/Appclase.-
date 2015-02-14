@@ -1,0 +1,33 @@
+<h1 >Listado de productos  <style type="text/css">
+  body {
+    color: purple;
+    background-color: #d8da3d }
+  </style> </h1>
+
+<p><%= "Hay #{@products.size} ventas registradas" %></p>
+<table> 
+	<tr>
+		<th>Núm de Ref </th>
+		<th>Cantidad</th>
+		<th>Nombre</th>
+		<th>Brand</th>
+		<th>Descripción</th>
+		<th>Acciones</th>
+	</tr>
+	<% @products.each do |products| %>
+		<tr>
+			<td><%= products.ref %></td>
+			<td><%= products.quantity %></td>
+			<td><%= products.name %></td>
+			<td><%= products.brand %></td>
+			<td><%= products.description %></td>
+			<td><%= products.price %>
+			<td><%= link_to 'Ver Detalle', url_for(controller: :products, action: :show, id: products.id) %>	
+			<%= link_to 'Editar', edit_product_path(products) %> <!--OJO con la variable que se declara entre () ya que esta es la misma del .each do-->
+			<%= link_to 'Eliminar', products, method: :delete %> 
+		</td>
+		</tr>
+	<% end %>
+
+</table> 
+<p><%= "Hay #{@products.size} productos" %></p>

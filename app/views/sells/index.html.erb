@@ -1,0 +1,22 @@
+<h1>VENTA</h1>
+
+<p><%= "Hay #{@sells.size} ventas registradas" %></p>	
+<table background: "blue">
+	<tr>
+		<th>Núm ID Venta </th>
+		<th>Cliente</th>
+		<th>Venta</th>
+		<th>Cantidad</th>
+		<th>Comentario</th>
+		<th>Acciones</th>
+	</tr>
+	<% @sells.each do |sells| %>
+		<tr>
+			<td><%= sells.id %></td>
+			<td><%= sells.total %></td>
+			<td><%= sells.comment %></td>
+			<td><%= link_to 'Ver Detalle', url_for(controller: :sells, action: :show, id: sells.id) %></td>
+
+		</tr>
+	<% end %>
+</table>

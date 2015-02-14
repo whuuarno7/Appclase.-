@@ -1,0 +1,21 @@
+
+<%if !@products.errors.empty? %>
+	<ol>
+		<% @products.errors.full_messages.each do |msg| %> 
+         <li> <%= msg %> </li>
+         <%end%>
+     </ol>
+<%end%>
+#hace las casillas para llenar el formulario
+<%=  form_for @products do |p| %>
+
+	<%= products.text_field :ref %>
+	<%= productst.text_field :name %>
+	<%= products.text_field :quantity %>
+	<%= products.text_field :brand %>
+    <%= products.text_field :description %>
+	<%= products.text_field :price %>
+	<%= f.submit %>
+
+ <% end %>
+ 
